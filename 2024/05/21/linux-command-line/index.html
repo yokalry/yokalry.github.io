@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="/favicon.jpg" type="image/x-icon" />
+    <title>
+        
+            Linux命令行效率提升技巧 |
+        
+        yokalry&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.min.css">
+
+    
+<link rel="stylesheet" href="/css/partial/atom-one-dark.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+    <body>
+        
+            <header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.social-icons a {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+</style>
+
+    <a class="title" href="/">
+        <h1>
+            yokalry&#39;s Blog
+        </h1>
+        
+    </a>
+    <div class="social-icons">
+  <a href="https://github.com/yokalry" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+  <a href="mailto:yokalry@hotmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
+  <a href="tencent://message/?uin=253280043" target="_blank" title="QQ"><i class="fab fa-qq"></i></a>
+  <a href="https://t.me/6562328063" target="_blank" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+</div>
+    <nav>
+        <p>
+            <a href="/">首页</a><a href="/about.html">关于</a>
+        </p>
+    </nav>
+</header>
+        
+        <main>
+    
+    <h1>
+        Linux命令行效率提升技巧
+    </h1>
+    
+    <p>
+        <i><time>2024/05/21 10:15:00</time></i>
+    </p>
+    <h1 id="Linux命令行效率提升技巧"><a href="#Linux命令行效率提升技巧" class="headerlink" title="Linux命令行效率提升技巧"></a>Linux命令行效率提升技巧</h1><p>Linux命令行是系统管理员和开发者的强大工具，掌握一些高效使用技巧可以显著提高工作效率。本文将介绍一些实用的命令行技巧和工具。</p>
+<h2 id="命令行快捷键"><a href="#命令行快捷键" class="headerlink" title="命令行快捷键"></a>命令行快捷键</h2><ul>
+<li><code>Ctrl+A</code>: 移动到行首</li>
+<li><code>Ctrl+E</code>: 移动到行尾</li>
+<li><code>Ctrl+U</code>: 删除从光标到行首的内容</li>
+<li><code>Ctrl+K</code>: 删除从光标到行尾的内容</li>
+<li><code>Ctrl+R</code>: 搜索命令历史</li>
+<li><code>!!</code>: 重复上一条命令</li>
+</ul>
+<h2 id="命令别名"><a href="#命令别名" class="headerlink" title="命令别名"></a>命令别名</h2><p>通过<code>alias</code>命令创建命令别名：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> ll=<span class="string">&#x27;ls -lha&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> grep=<span class="string">&#x27;grep --color=auto&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>永久别名需添加到<code>.bashrc</code>或<code>.zshrc</code>文件中。</p>
+<h2 id="管道和重定向"><a href="#管道和重定向" class="headerlink" title="管道和重定向"></a>管道和重定向</h2><ul>
+<li><code>|</code>: 将一个命令的输出作为另一个命令的输入</li>
+<li><code>&gt;</code>: 将输出重定向到文件（覆盖）</li>
+<li><code>&gt;&gt;</code>: 将输出追加到文件</li>
+<li><code>2&gt;</code>: 重定向错误输出</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep nginx &gt; nginx_processes.txt 2&gt; error.log</span><br></pre></td></tr></table></figure>
+
+<h2 id="实用工具"><a href="#实用工具" class="headerlink" title="实用工具"></a>实用工具</h2><ul>
+<li><strong>tmux</strong>: 终端复用工具，支持多窗口和会话管理</li>
+<li><strong>htop</strong>: 交互式进程查看器</li>
+<li><strong>fd</strong>: 快速文件搜索工具</li>
+<li><strong>fzf</strong>: 命令行模糊查找工具</li>
+<li><strong>tldr</strong>: 简化版命令手册</li>
+</ul>
+<h2 id="命令行自动化"><a href="#命令行自动化" class="headerlink" title="命令行自动化"></a>命令行自动化</h2><p>使用shell脚本自动化重复任务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># 备份日志文件</span></span><br><span class="line"><span class="built_in">date</span>=$(<span class="built_in">date</span> +%Y%m%d)</span><br><span class="line">tar -czf /backup/logs_<span class="variable">$date</span>.tar.gz /var/log/*</span><br></pre></td></tr></table></figure>
+
+<p>掌握这些命令行技巧不仅能提高工作效率，还能让你更深入地理解Linux系统的强大功能。持续学习和实践是提升命令行技能的关键。</p>
+
+    
+    
+</main>
+        
+            <footer style="padding:25px 0;">
+    
+    <br/>
+    
+    <span>
+        &copy; 2025
+            yokalry
+    </span>
+    
+    <span>
+        Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    </span>
+   
+</footer>
+        
+    </body>
+</html>

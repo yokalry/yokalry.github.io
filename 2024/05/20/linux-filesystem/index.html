@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="/favicon.jpg" type="image/x-icon" />
+    <title>
+        
+            Linux文件系统详解 |
+        
+        yokalry&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.min.css">
+
+    
+<link rel="stylesheet" href="/css/partial/atom-one-dark.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+    <body>
+        
+            <header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.social-icons a {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+</style>
+
+    <a class="title" href="/">
+        <h1>
+            yokalry&#39;s Blog
+        </h1>
+        
+    </a>
+    <div class="social-icons">
+  <a href="https://github.com/yokalry" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+  <a href="mailto:yokalry@hotmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
+  <a href="tencent://message/?uin=253280043" target="_blank" title="QQ"><i class="fab fa-qq"></i></a>
+  <a href="https://t.me/6562328063" target="_blank" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+</div>
+    <nav>
+        <p>
+            <a href="/">首页</a><a href="/about.html">关于</a>
+        </p>
+    </nav>
+</header>
+        
+        <main>
+    
+    <h1>
+        Linux文件系统详解
+    </h1>
+    
+    <p>
+        <i><time>2024/05/20 15:30:00</time></i>
+    </p>
+    <h1 id="Linux文件系统详解"><a href="#Linux文件系统详解" class="headerlink" title="Linux文件系统详解"></a>Linux文件系统详解</h1><p>Linux文件系统是操作系统的核心组件，负责组织和管理存储设备上的数据。与Windows的多根目录结构不同，Linux采用单一的树形目录结构，所有文件和设备都挂载在根目录<code>/</code>下。</p>
+<h2 id="文件系统层次结构"><a href="#文件系统层次结构" class="headerlink" title="文件系统层次结构"></a>文件系统层次结构</h2><ul>
+<li><code>/bin</code>: 基本用户命令</li>
+<li><code>/etc</code>: 系统配置文件</li>
+<li><code>/home</code>: 用户主目录</li>
+<li><code>/mnt</code>: 临时挂载点</li>
+<li><code>/proc</code>: 虚拟文件系统，提供内核和进程信息</li>
+<li><code>/var</code>: 可变数据，如日志和缓存</li>
+</ul>
+<h2 id="常见文件系统类型"><a href="#常见文件系统类型" class="headerlink" title="常见文件系统类型"></a>常见文件系统类型</h2><ul>
+<li><strong>ext4</strong>: 最常用的日志文件系统，支持大文件和分区</li>
+<li><strong>XFS</strong>: 高性能文件系统，适合大型数据存储</li>
+<li><strong>Btrfs</strong>: 支持快照和RAID功能的高级文件系统</li>
+<li><strong>tmpfs</strong>: 内存中的临时文件系统</li>
+</ul>
+<h2 id="挂载文件系统"><a href="#挂载文件系统" class="headerlink" title="挂载文件系统"></a>挂载文件系统</h2><p>使用<code>mount</code>命令挂载文件系统：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sdb1 /mnt/external</span><br></pre></td></tr></table></figure>
+
+<p>永久挂载需配置<code>/etc/fstab</code>文件。</p>
+<h2 id="文件系统维护"><a href="#文件系统维护" class="headerlink" title="文件系统维护"></a>文件系统维护</h2><ul>
+<li><code>df -h</code>: 查看磁盘空间使用情况</li>
+<li><code>du -sh *</code>: 查看目录大小</li>
+<li><code>fsck</code>: 文件系统检查和修复</li>
+</ul>
+<p>了解Linux文件系统结构对于系统管理和故障排除至关重要，合理规划文件系统可以提高系统性能和数据安全性。</p>
+
+    
+    
+</main>
+        
+            <footer style="padding:25px 0;">
+    
+    <br/>
+    
+    <span>
+        &copy; 2025
+            yokalry
+    </span>
+    
+    <span>
+        Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    </span>
+   
+</footer>
+        
+    </body>
+</html>
